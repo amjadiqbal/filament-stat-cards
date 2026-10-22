@@ -11,7 +11,6 @@ use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
 use Livewire\Livewire;
 
-
 beforeEach(function (): void {
     Filament::setCurrentPanel(Filament::getPanel('admin'));
 });
