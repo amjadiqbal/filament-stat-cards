@@ -6,7 +6,20 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
-## [1.0.0] - 2026-10-23
+## [1.0.1] - 2026-10-23
+
+### Changed
+
+- `textColor()` accepts closures for the label and value colours, like `labelColor()` and `valueColor()`.
+- Homepage and docs now point to https://amjad.com.pk/filament/plugins/filament-stat-cards.
+
+### Documentation
+
+- README: the differences from eightynine/filament-advanced-widgets that need a change when you migrate (default
+  icon position, `progress('full' | 'empty')`, `chartColor()` taking one colour, no `borderColor()` / `graphColor()`).
+- CHANGELOG: 1.0.0 is dated 2026-10-22, as on Packagist (UTC).
+
+## [1.0.0] - 2026-10-22
 
 First release. Requires PHP 8.2+, Laravel 12 or 13 and Filament 4 or 5.
 
@@ -21,5 +34,6 @@ First release. Requires PHP 8.2+, Laravel 12 or 13 and Filament 4 or 5.
 - Plain-CSS stylesheet: linked when published by `filament:assets`, printed inline otherwise. No build step.
 - Dark mode uses only solid colours and neutral surfaces (no translucent warm fills).
 
-[Unreleased]: https://github.com/amjadiqbal/filament-stat-cards/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/amjadiqbal/filament-stat-cards/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/amjadiqbal/filament-stat-cards/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/amjadiqbal/filament-stat-cards/releases/tag/v1.0.0

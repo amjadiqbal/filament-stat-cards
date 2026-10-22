@@ -97,6 +97,13 @@ it('sets label, value and description colours with textColor()', function (): vo
         ->and($stat->getDescriptionColor())->toBe('info');
 });
 
+it('accepts closures for the label and value colours in textColor()', function (): void {
+    $stat = Stat::make('X', 1)->textColor(fn (): string => 'warning', fn (): string => 'success');
+
+    expect($stat->getLabelColor())->toBe('warning')
+        ->and($stat->getValueColor())->toBe('success');
+});
+
 it('uses the tile colour for the icon unless an icon colour is set', function (): void {
     expect(Stat::make('X', 1)->iconBackgroundColor('success')->getIconColor())->toBe('success')
         ->and(Stat::make('X', 1)->iconBackgroundColor('success')->iconColor('info')->getIconColor())->toBe('info');

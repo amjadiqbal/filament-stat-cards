@@ -13,7 +13,7 @@
         "kpi",
         "progress-bar"
     ],
-    "homepage": "https://github.com/amjadiqbal/filament-stat-cards",
+    "homepage": "https://amjad.com.pk/filament/plugins/filament-stat-cards",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -25,7 +25,8 @@
     ],
     "support": {
         "issues": "https://github.com/amjadiqbal/filament-stat-cards/issues",
-        "source": "https://github.com/amjadiqbal/filament-stat-cards"
+        "source": "https://github.com/amjadiqbal/filament-stat-cards",
+        "docs": "https://amjad.com.pk/filament/plugins/filament-stat-cards"
     },
     "require": {
         "php": "^8.2",

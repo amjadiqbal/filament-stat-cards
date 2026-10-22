@@ -130,13 +130,14 @@ class Stat extends BaseStat
     }
 
     /**
-     * Set the label, value and description colours in one call. Pass null to leave one unchanged.
+     * Set the label, value and description colours in one call. Pass null to leave one unchanged. The label and value
+     * accept closures; the description colour is core's, which takes a string or a palette array.
      *
-     * @param  string | array<int | string, string> | null  $label
-     * @param  string | array<int | string, string> | null  $value
+     * @param  string | array<int | string, string> | Closure | null  $label
+     * @param  string | array<int | string, string> | Closure | null  $value
      * @param  string | array<int | string, string> | null  $description
      */
-    public function textColor(string|array|null $label = null, string|array|null $value = null, string|array|null $description = null): static
+    public function textColor(string|array|Closure|null $label = null, string|array|Closure|null $value = null, string|array|null $description = null): static
     {
         if ($label !== null) {
             $this->labelColor($label);

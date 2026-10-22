@@ -11,6 +11,8 @@ Richer stat cards for the Filament stats overview widget: progress bars, icon ti
 colours, trends, badges and bar charts. It works with Filament 4 and 5, inside the `StatsOverviewWidget` you already
 have.
 
+**Docs:** [amjad.com.pk/filament/plugins/filament-stat-cards](https://amjad.com.pk/filament/plugins/filament-stat-cards)
+
 [![Latest Version](https://img.shields.io/packagist/v/amjadiqbal/filament-stat-cards.svg?style=flat-square)](https://packagist.org/packages/amjadiqbal/filament-stat-cards)
 [![PHP Version](https://img.shields.io/packagist/php-v/amjadiqbal/filament-stat-cards?style=flat-square)](https://packagist.org/packages/amjadiqbal/filament-stat-cards)
 [![License](https://img.shields.io/packagist/l/amjadiqbal/filament-stat-cards.svg?style=flat-square)](LICENSE.md)
@@ -145,8 +147,18 @@ Filament 4 and 5 that accepts the same stat method names (`backgroundColor`, `pr
 2. Replace `use EightyNine\FilamentAdvancedWidget\AdvancedStatsOverviewWidget as BaseWidget;` with
    `use Filament\Widgets\StatsOverviewWidget as BaseWidget;`.
 
-Check the result in the browser: the cards look different, and this package only covers the stats widget, not
-eightynine's chart or table widgets.
+Differences to check when you move across:
+
+- **Icon position:** eightynine puts the icon at the end by default; here it is at the start, as in core. Add
+  `->iconPosition('end')` to keep the old layout.
+- **`progress()` takes numbers only** (`progress($value, $max = 100)`). Replace `'full'` with `100` and `'empty'`
+  with `0`.
+- **`chartColor()` takes one colour**, as in core. A second argument is ignored, and `borderColor()` /
+  `graphColor()` don't exist here.
+- **`textColor()`** takes closures for the label and value only; the description colour is core's, which takes a
+  colour name or palette array.
+- The cards look different, and this package only covers the stats widget, not eightynine's chart or table widgets.
+  Check the result in the browser.
 
 ## Dark mode and colour
 
