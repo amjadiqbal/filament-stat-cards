@@ -40,7 +40,7 @@ have.
 ## Requirements
 
 - PHP 8.2+
-- Laravel 11.28+, 12 or 13
+- Laravel 12 or 13
 - Filament 4 or 5
 
 ## Installation
@@ -159,7 +159,7 @@ muddy. It also sets core's sparkline to a line without an area fill in dark mode
 ```bash
 composer test
 composer analyse
-scripts/ci-local.sh   # PHP 8.2-8.5 x Laravel 11-13 x Filament 4-5
+scripts/ci-local.sh   # PHP 8.2-8.5 x Laravel 12-13 x Filament 4-5
 ```
 
 ## Changelog
