@@ -1,0 +1,231 @@
+/*
+ * Stat Cards for Filament. Plain CSS, no build step: colours come from Filament's own --<colour>-<shade> variables,
+ * mapped per card to --fsc-<slot>-<shade> by the Stat class.
+ * Dark mode never uses a translucent colour fill (a translucent warm colour on a dark surface reads as brown).
+ * Colours appear as solid text, lines, bars and borders there. No shade above 600 is ever used.
+ */
+
+.fsc-stat .fsc-head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-width: 0;
+}
+
+.fsc-stat .fsc-label {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.fsc-stat.fsc-icon-end .fsc-label {
+    flex: 1 1 auto;
+}
+
+.fsc-stat .fsc-icon-end-wrap {
+    display: inline-flex;
+    margin-inline-start: auto;
+}
+
+.fsc-stat .fsc-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Icon colour (without a tile) */
+.fsc-stat.fsc-has-icon-color .fsc-icon {
+    color: var(--fsc-icon-500);
+}
+
+:is(.dark .fsc-stat.fsc-has-icon-color) .fsc-icon {
+    color: var(--fsc-icon-400);
+}
+
+/* Icon tile */
+.fsc-stat .fsc-icon-tile {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.625rem;
+    background-color: var(--fsc-tile-50);
+    box-shadow: inset 0 0 0 1px var(--fsc-tile-100);
+}
+
+.fsc-stat .fsc-icon-tile .fsc-icon {
+    color: var(--fsc-icon-600, var(--fsc-tile-600));
+}
+
+.fsc-stat .fsc-icon-tile-end {
+    margin-inline-start: auto;
+}
+
+.fsc-stat.fsc-has-bg .fsc-icon-tile {
+    background-color: #fff;
+}
+
+:is(.dark .fsc-stat) .fsc-icon-tile {
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1.5px var(--fsc-tile-400);
+}
+
+:is(.dark .fsc-stat) .fsc-icon-tile .fsc-icon {
+    color: var(--fsc-icon-400, var(--fsc-tile-400));
+}
+
+/* Background colour */
+.fsc-stat.fsc-has-bg {
+    background-color: var(--fsc-bg-50);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 0 0 1px var(--fsc-bg-200);
+}
+
+:is(.dark .fsc-stat.fsc-has-bg) {
+    background-color: var(--gray-900);
+    box-shadow: inset 0 3px 0 0 var(--fsc-bg-400), 0 0 0 1px var(--gray-700);
+}
+
+/* Label and value colours */
+.fsc-stat.fsc-has-label-color .fsc-label {
+    color: var(--fsc-label-600);
+}
+
+:is(.dark .fsc-stat.fsc-has-label-color) .fsc-label {
+    color: var(--fsc-label-400);
+}
+
+.fsc-stat.fsc-has-value-color .fsc-value {
+    color: var(--fsc-value-600);
+}
+
+:is(.dark .fsc-stat.fsc-has-value-color) .fsc-value {
+    color: var(--fsc-value-400);
+}
+
+/* Description */
+.fsc-stat .fsc-description {
+    display: flex;
+    align-items: center;
+    column-gap: 0.25rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--gray-500);
+}
+
+:is(.dark .fsc-stat) .fsc-description {
+    color: var(--gray-400);
+}
+
+.fsc-stat .fsc-description-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.fsc-stat.fsc-has-desc-color .fsc-description {
+    color: var(--fsc-desc-600);
+}
+
+.fsc-stat.fsc-has-desc-color .fsc-description-icon {
+    color: var(--fsc-desc-500);
+}
+
+:is(.dark .fsc-stat.fsc-has-desc-color) .fsc-description,
+:is(.dark .fsc-stat.fsc-has-desc-color) .fsc-description-icon {
+    color: var(--fsc-desc-400);
+}
+
+/* Badge */
+.fsc-stat .fsc-badge {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    border-radius: 0.375rem;
+    padding: 0.0625rem 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 1rem;
+    color: var(--fsc-badge-600);
+    background-color: var(--fsc-badge-50);
+    box-shadow: inset 0 0 0 1px var(--fsc-badge-200);
+}
+
+:is(.dark .fsc-stat) .fsc-badge {
+    color: var(--fsc-badge-400);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px var(--fsc-badge-400);
+}
+
+/* Progress bar */
+.fsc-stat .fsc-progress {
+    display: grid;
+    gap: 0.375rem;
+    margin-top: 0.25rem;
+}
+
+.fsc-stat .fsc-progress-track {
+    overflow: hidden;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: var(--gray-100);
+}
+
+.fsc-stat.fsc-has-bg .fsc-progress-track {
+    background-color: #fff;
+}
+
+:is(.dark .fsc-stat) .fsc-progress-track {
+    background-color: var(--gray-800);
+}
+
+.fsc-stat .fsc-progress-bar {
+    height: 100%;
+    border-radius: 9999px;
+    background-color: var(--fsc-progress-500);
+    transition: width 0.4s ease;
+}
+
+:is(.dark .fsc-stat) .fsc-progress-bar {
+    background-color: var(--fsc-progress-400);
+}
+
+.fsc-stat .fsc-progress-label {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--gray-500);
+}
+
+:is(.dark .fsc-stat) .fsc-progress-label {
+    color: var(--gray-400);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .fsc-stat .fsc-progress-bar {
+        transition: none;
+    }
+}
+
+/* Bar chart: sits in the card's bottom padding, like core's sparkline. */
+.fsc-stat .fsc-bars {
+    position: absolute;
+    inset-inline: 1.5rem;
+    bottom: 0.25rem;
+    display: block;
+    width: calc(100% - 3rem);
+    height: 1.25rem;
+}
+
+.fsc-stat .fsc-bars rect {
+    fill: var(--fsc-chart-300);
+}
+
+:is(.dark .fsc-stat) .fsc-bars rect {
+    fill: var(--fsc-chart-400);
+}
+
+/* Core sparkline: line only in dark mode, no translucent area fill. */
+:is(.dark .fsc-stat) .fi-wi-stats-overview-stat-chart .fi-wi-stats-overview-stat-chart-bg-color {
+    color: transparent;
+}
