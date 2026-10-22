@@ -46,13 +46,15 @@
                 @endif
             @endif
 
-            <span class="fi-wi-stats-overview-stat-label fsc-label">
-                {{ $getLabel() }}
-            </span>
+            <div class="fsc-title">
+                <span class="fi-wi-stats-overview-stat-label fsc-label">
+                    {{ $getLabel() }}
+                </span>
 
-            @if (filled($badge))
-                <span class="fsc-badge">{{ $badge }}</span>
-            @endif
+                @if (filled($badge))
+                    <span class="fsc-badge">{{ $badge }}</span>
+                @endif
+            </div>
 
             @if ($iconHtml && ($iconPosition === 'end'))
                 @if ($hasTile)

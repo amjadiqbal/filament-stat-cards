@@ -12,13 +12,19 @@
     min-width: 0;
 }
 
-.fsc-stat .fsc-label {
+/* Label and badge wrap as a group, so a long label never breaks mid-word next to an icon tile. */
+.fsc-stat .fsc-title {
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.5rem;
     min-width: 0;
-    overflow-wrap: anywhere;
 }
 
-.fsc-stat.fsc-icon-end .fsc-label {
-    flex: 1 1 auto;
+.fsc-stat .fsc-label {
+    min-width: 0;
+    overflow-wrap: break-word;
 }
 
 .fsc-stat .fsc-icon-end-wrap {

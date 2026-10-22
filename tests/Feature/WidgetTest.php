@@ -9,15 +9,15 @@ use Filament\Facades\Filament;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentView;
 use Filament\View\PanelsRenderHook;
+use Livewire\Livewire;
 
-use function Pest\Livewire\livewire;
 
 beforeEach(function (): void {
     Filament::setCurrentPanel(Filament::getPanel('admin'));
 });
 
 it('renders stat cards inside a core stats overview widget', function (): void {
-    livewire(StatCardsWidget::class)
+    Livewire::test(StatCardsWidget::class)
         ->assertOk()
         ->assertSeeText(['Revenue', '$48,200', 'Refunds', 'Signups', 'Core stat'])
         ->assertSeeHtml('fsc-stat')
@@ -26,7 +26,7 @@ it('renders stat cards inside a core stats overview widget', function (): void {
 });
 
 it('renders an accessible progress bar with its label', function (): void {
-    livewire(StatCardsWidget::class)
+    Livewire::test(StatCardsWidget::class)
         ->assertSeeHtml('role="progressbar"')
         ->assertSeeHtml('aria-valuenow="72"')
         ->assertSeeHtml('aria-label="Revenue"')
@@ -35,7 +35,7 @@ it('renders an accessible progress bar with its label', function (): void {
 });
 
 it('renders trends, badges and bar charts', function (): void {
-    livewire(StatCardsWidget::class)
+    Livewire::test(StatCardsWidget::class)
         ->assertSeeText(['12.4% increase', '22.5% decrease', 'Live', 'This week'])
         ->assertSeeHtml('--fsc-desc-600: var(--success-600)')
         ->assertSeeHtml('--fsc-badge-600: var(--success-600)')
@@ -44,11 +44,11 @@ it('renders trends, badges and bar charts', function (): void {
 });
 
 it('keeps core sparklines and core stats working', function (): void {
-    livewire(StatCardsWidget::class)
+    Livewire::test(StatCardsWidget::class)
         ->assertSeeHtml('statsOverviewStatChart(')
         ->assertSeeHtml('fi-wi-stats-overview-stat-chart');
 
-    $html = livewire(StatCardsWidget::class)->html();
+    $html = Livewire::test(StatCardsWidget::class)->html();
 
     // The core stat keeps core's own markup (its label container) and none of ours.
     expect(substr_count($html, 'fi-wi-stats-overview-stat-label-ctn'))->toBe(1)
@@ -56,7 +56,7 @@ it('keeps core sparklines and core stats working', function (): void {
 });
 
 it('escapes user text in every slot', function (): void {
-    $html = livewire(EscapingWidget::class)->html();
+    $html = Livewire::test(EscapingWidget::class)->html();
 
     expect($html)->not->toContain('<script>value</script>')
         ->and($html)->not->toContain('<b>label</b>')
